@@ -3,13 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Harrison Rae CV</title>
+    <link rel="stylesheet" href="docs/css/styles.css">
 </head>
+<style>
+    
+/* General Resetye */
+body, html {
+  
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.split {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Left Section */
+.left {
+    left: 0;
+    background: #ffffff; /* Light gray background */
+    border-right: 2px solid #ccc;
+}
+
+.left .content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Right Section */
+.right {
+    right: 0;
+    background: #fff;
+}
+
+.right .content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.right img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Scrollbar Styling */
+.split::-webkit-scrollbar {
+    width: 8px;
+}
+
+.split::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 4px;
+}
+
+.split::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+</style>
 <body>
     <div class="split left">
         <div class="content">
-            <h1>About the Artist</h1>
+            <h1>Harrison Rae</h1>
             <p>Welcome to my portfolio! I’m an artist specializing in [medium/style].</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend euismod sapien, vitae sodales urna vestibulum at.</p>
             <p>Suspendisse potenti. Nullam ac lorem non nisi aliquet sollicitudin ut a arcu.</p>
@@ -19,7 +84,7 @@
     <div class="split right">
         <div class="content">
             <h1>Gallery</h1>
-            <img src="art1.jpg" alt="Art Piece 1">
+            <img src="docs/images/postcards.jpg" alt="Art Piece 1">
             <img src="art2.jpg" alt="Art Piece 2">
             <img src="art3.jpg" alt="Art Piece 3">
             <img src="art4.jpg" alt="Art Piece 4">
