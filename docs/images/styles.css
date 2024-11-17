@@ -1,90 +1,60 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+body, html {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-.container {
-    width: 80%;
+.split {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Left Section */
+.left {
+    left: 0;
+    background: #f4f4f4; /* Light gray background */
+    border-right: 2px solid #ccc;
+}
+
+.left .content {
+    max-width: 400px;
     margin: 0 auto;
 }
 
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+/* Right Section */
+.right {
+    right: 0;
+    background: #fff;
 }
 
-header h1 {
-    text-align: center;
-    margin: 0;
-    font-size: 2rem;
+.right .content {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-header nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Section Styling */
-section {
-    padding: 2rem 0;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-/* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.gallery-grid img {
+.right img {
     width: 100%;
-    border: 2px solid #ddd;
+    margin-bottom: 20px;
     border-radius: 5px;
 }
 
-/* Contact */
-.social-links {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+/* Scrollbar Styling */
+.split::-webkit-scrollbar {
+    width: 8px;
 }
 
-.social-links li {
-    margin: 0 10px;
+.split::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 4px;
 }
 
-.social-links a {
-    text-decoration: none;
-    color: #007BFF;
-}
-
-footer {
-    text-align: center;
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    margin-top: 2rem;
+.split::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }
