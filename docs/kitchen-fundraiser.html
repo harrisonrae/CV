@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen</title>
+</head>
+<body style="font-family: Times New Roman, serif; margin: 20px; text-align: center;">
+
+  <h1>Trapunto (2024)</h1>
+
+  <div style="max-width: 600px; margin: 0 auto 2rem auto; text-align: center; line-height: 1.5;">
+    <p>
+      Shown at Kitchen Studio's 2024 Fundraiser
+    </p>
+  </div>
+
+  <!-- image container -->
+  <div style="text-align: center;">
+    <img id="slideshow" src="images/trapunto.jpg" alt="Artwork" 
+         style="width: auto; height: auto; max-height: 550px; display: block; margin: 0 auto; cursor: pointer;">
+  </div>
+
+  <script>
+    const images = [
+      "images/trapunto.jpg",
+        ];
+    let currentIndex = 0;
+
+    const slideshow = document.getElementById("slideshow");
+
+    slideshow.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      slideshow.src = images[currentIndex];
+    });
+  </script>
+
+</body>
+</html>

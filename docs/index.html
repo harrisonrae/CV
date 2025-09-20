@@ -1,95 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harrison Rae CV</title>
-    <link rel="stylesheet" href="docs/css/styles.css">
+  <meta charset="UTF-8">
+  <title>Harrison Rae</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      background: #ffffff;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+    }
+    nav {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    select {
+      font-family: "Times New Roman", serif;
+      font-size: 14px;
+      border: 1px solid black;
+      background: #fff;
+      color: #000;
+    }
+    .left {
+      width: 50%;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+    .right img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    /* Harrison Rae mode */
+    body.harrisonrae .left {
+      display: none;
+    }
+    body.harrisonrae .right {
+      width: 100%;
+    }
+
+    /* Popup box */
+    .popup {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 300px;
+      background: #fff;
+      border: 1px solid #000;
+      padding: 10px;
+      z-index: 1000;
+      display: none;
+      cursor: move;
+    }
+    .popup-header {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .popup-header button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+ 
+  </style>
 </head>
-<style>
-    
-/* General Resetye */
-body, html {
-  
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.split {
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Left Section */
-.left {
-    left: 0;
-    background: #ffffff; /* Light gray background */
-    border-right: 2px solid #ccc;
-}
-
-.left .content {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* Right Section */
-.right {
-    right: 0;
-    background: #fff;
-}
-
-.right .content {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.right img {
-    width: 100%;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-/* Scrollbar Styling */
-.split::-webkit-scrollbar {
-    width: 8px;
-}
-
-.split::-webkit-scrollbar-thumb {
-    background: #aaa;
-    border-radius: 4px;
-}
-
-.split::-webkit-scrollbar-thumb:hover {
-    background: #888;
-}
-
-</style>
 <body>
-    <div class="split left">
-        <div class="content">
-            <h1>Harrison Rae</h1>
-            <p>Welcome to my portfolio! I’m an artist specializing in [medium/style].</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend euismod sapien, vitae sodales urna vestibulum at.</p>
-            <p>Suspendisse potenti. Nullam ac lorem non nisi aliquet sollicitudin ut a arcu.</p>
-            <p>...Add more content here...</p>
-        </div>
+  <nav>
+    <select id="menu" onchange="swapContent()">
+      <option value="harrisonrae">Harrison Rae</option>
+      <option value="exhibitions">Selected exhibitions</option>
+      <option value="residencies">Residencies</option>
+      <option value="performances">Selected performances</option>
+      <option value="webpages">Webpages</option>
+      <option value="music">Music</option>
+    </select>
+  </nav>
+
+  <div class="left" id="content"></div>
+
+  <div class="right">
+    <img id="photo" src="images/title.jpg" alt="title image">
+  </div>
+
+  <!-- Popup box -->
+  <div id="popup" class="popup">
+    <div class="popup-header">
+    
+      <button onclick="closePopup()">✕</button>
     </div>
-    <div class="split right">
-        <div class="content">
-            <h1>Gallery</h1>
-            <img src="docs/images/postcards.jpg" alt="Art Piece 1">
-            <img src="art2.jpg" alt="Art Piece 2">
-            <img src="art3.jpg" alt="Art Piece 3">
-            <img src="art4.jpg" alt="Art Piece 4">
-            <p>...Add more images or content here...</p>
-        </div>
-    </div>
+    <p>harrison rae is an artist and musician living and making on unceded gadigal land.</p>
+  </div>
+
+  <script>
+    function swapContent() {
+      const value = document.getElementById("menu").value;
+      const content = document.getElementById("content");
+      const photo = document.getElementById("photo");
+
+      document.body.classList.remove("harrisonrae");
+
+      switch (value) {
+        case "exhibitions":
+          content.innerHTML = `
+            <ul>
+            <li><a href="horseshoe.html" target="_blank">Horseshoe (2025)</a></li>
+<li><a href="tiles-fundraiser.html" target="_blank">Tiles Fundraiser (2025)</a></li>
+ <li><a href="fbi.html" target="_blank">FBi Radio Auction (2025)</a></li>
+<li><a href="myth-signification.html" target="_blank">Myth and Signification (2024)</a></li>
+<li><a href="kitchen-fundraiser.html" target="_blank">Kitchen Fundraiser (2024)</a></li>
+            </ul>
+          `;
+          photo.src = "images/white.jpg";
+          photo.alt = "Exhibitions photo";
+          break;
+
+        case "residencies":
+          content.innerHTML = `
+          
+            <ul>
+              <li><a href="studio-kura.html" target="_blank">Studio Kura Residency</a></li>
+            </ul>
+          `;
+          photo.src = "images/white.jpg";
+          photo.alt = "Residency photo";
+          break;
+
+        case "performances":
+          content.innerHTML = `
+                <ul>
+            <li><a href="machread.html" target="_blank">Machine Readable @ Carriageworks</a></li>
+<li><a href="https://harrisonrae.github.io/EthanFromePerformance/" target="_blank">Untitled @ Ethan Frome</a></li>
+<li><a href="https://harrison-rae.bandcamp.com/album/fountain-chorus" target="_blank">Fountain Chorus @ COMA Darlinghurst</a></li>
+<li><a href="https://harrisonrae.github.io/framework42/" target="_blank">Reading: Notes on Fugitivity @ AGNSW </a></li>
+
+            </ul>
+          `;
+          photo.src = "images/white.jpg";
+          photo.alt = "Performance photo";
+          break;
+
+        case "webpages":
+          content.innerHTML = `
+            <ul>
+              <li><a href="https://harrisonrae.github.io/safehouse/" target="_blank">Website for Machine Readable performance</a></li>
+              <li><a href="https://harrisonrae.github.io/EthanFromePerformance/" target="_blank">Untitled @ Ethan Frome</a></li>
+              <li><a href="https://harrisonrae.github.io/homepage/" target="_blank">An Image Everyday</a></li>
+              <li><a href="https://harrisonrae.github.io/myth-and-signification/" target="_blank">Myth & Signification site</a></li>
+<li><a href="https://harrisonrae.github.io/ilymp/" target="_blank">Website for my girlfriend</a></li>
+
+
+
+
+
+
+
+
+              
+            </ul>
+          `;
+          photo.src = "images/white.jpg";
+          photo.alt = "Webpage screenshot";
+          break;
+
+             case "music":
+          content.innerHTML = `
+            <ul>
+              <li><a href="https://harrison-rae.bandcamp.com/album/tara" target="_blank">Ta'Ra (2024) released on Midheaven</a></li>
+              <li><a href="https://clubmoss.bandcamp.com/music" target="_blank">Club Moss</a></li>
+              <li><a href="https://soundcloud.com/harrisonrae/sets/snowclones-2023" target="_blank">Radio Residency on Nomad Radio</a></li>
+              <li><a href="https://clubmoss.bandcamp.com/album/tooie-ost" target="_blank">Beau Ambien's 'Tooie'</a></li>
+              
+            </ul>
+            
+          `;
+          photo.src = "images/gig.jpg";
+          photo.alt = "Music photo";
+          break;
+
+        case "harrisonrae":
+        default:
+          content.innerHTML = ``;
+          photo.src = "images/title.jpg";
+          photo.alt = "Bio image";
+          document.body.classList.add("harrisonrae");
+      }
+    }
+
+    // Popup logic
+    const photo = document.getElementById("photo");
+    const popup = document.getElementById("popup");
+
+    photo.addEventListener("click", () => {
+      if (document.body.classList.contains("harrisonrae")) {
+        popup.style.display = "block";
+      }
+    });
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+
+    // Dragging
+    let offsetX, offsetY, isDragging = false;
+    popup.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      offsetX = e.clientX - popup.offsetLeft;
+      offsetY = e.clientY - popup.offsetTop;
+    });
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        popup.style.left = (e.clientX - offsetX) + "px";
+        popup.style.top = (e.clientY - offsetY) + "px";
+      }
+    });
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    // Run default state on load
+    swapContent();
+  </script>
 </body>
 </html>

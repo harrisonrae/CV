@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Readable</title>
+</head>
+<body style="font-family: Times New Roman, serif; margin: 20px;">
+
+
+  <h1>Machine Readable (2025)</h1>
+
+  <!-- parent container for text and image -->
+  <div style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <!-- text on the left -->
+    <div style="flex: 1; max-width: 600px; text-align: left; line-height: 1.5;">
+      <p>
+Machine Readable was a performance at Carriageworks
+ </div>
+
+    <!-- image on the right -->
+    <div style="flex: 1; text-align: center;">
+      <img id="slideshow" src="images/c2.jpg" alt="Artwork" 
+           style="width: auto; height: auto; max-height: 550px; display: block; margin: 0 auto; cursor: pointer;">
+    </div>
+
+  </div>
+
+  <script>
+    const images = [
+      "images/c2.jpg",
+      "images/carriageworks.jpg",
+      
+    ];
+    let currentIndex = 0;
+
+    const slideshow = document.getElementById("slideshow");
+
+    slideshow.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      slideshow.src = images[currentIndex];
+    });
+  </script>
+
+</body>
+</html>
+

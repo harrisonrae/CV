@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gomi</title>
+</head>
+<body style="font-family: Times New Roman, serif; margin: 20px;">
+
+
+  <h1>Gomi (2024)</h1>
+
+  <!-- parent container for text and image -->
+  <div style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <!-- text on the left -->
+    <div style="flex: 1; max-width: 600px; text-align: left; line-height: 1.5;">
+ <p>'Gomi' was a show by Harrison Rae exploring the materiality of garbage. </p>
+  <p></p>In 'Gomi', Rae showcased a collection of flags, kites and quilts, items made during his time as artist in residence at Studio Kura.
+       
+       <p></p> Drawing upon the history of boro as a traditional handcraft, 'Gomi' explored the transformative potential of discarded materials and highlights the artistry and cultural resonance of repair and renewal.
+                
+        <p></p>'Gomi' tied the domestic to the global through considering creative approaches to the challenges of sustainability, and uses flags, kites and quilts as objects to connect the past with the present.</p>
+  
+<p><a href="https://harrisonrae.github.io/gomi.kura-residency/">Visit this website I built and click on the desktop icons to view the works</a></p>
+ </div>
+
+    <!-- image on the right -->
+    <div style="flex: 1; text-align: center;">
+      <img id="slideshow" src="images/gomi.png" alt="Artwork" 
+           style="width: auto; height: auto; max-height: 550px; display: block; margin: 0 auto; cursor: pointer;">
+    </div>
+
+  </div>
+
+  <script>
+    const images = [
+      "images/gomi.png",
+      
+    ];
+    let currentIndex = 0;
+
+    const slideshow = document.getElementById("slideshow");
+
+    slideshow.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      slideshow.src = images[currentIndex];
+    });
+  </script>
+
+</body>
+</html>
