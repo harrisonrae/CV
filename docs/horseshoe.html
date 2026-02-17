@@ -1,48 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Horseshoe</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Horseshoe (2025)</title>
+
+<style>
+
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   TYPOGRAPHY
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+body {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================
+   STICKY TITLE (SEPARATE)
+===================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 40px;
+  z-index: 100;
+}
+
+.site-header h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  padding: 0 40px 80px 40px;
+  align-items: start;
+}
+
+/* =====================
+   IMAGES COLUMN
+===================== */
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* =====================
+   STICKY TEXT COLUMN
+===================== */
+.text {
+  position: sticky;
+  top: 180px; /* pushes below sticky title */
+  align-self: start;
+  max-width: 760px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.text p {
+  margin-bottom: 56px;
+}
+
+.text .highlight {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* =====================
+   MODAL WINDOW
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-window {
+  background: #f5f5f5;
+  border: 1px solid #000;
+  width: min(900px, 90vw);
+  max-height: 90vh;
+  box-shadow: 4px 4px 0 #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #e0e0e0;
+  border-bottom: 1px solid #000;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+/* IMPORTANT FIX FOR PORTRAIT IMAGES */
+.modal-body img {
+  max-width: 100%;
+  max-height: 80vh;
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .text {
+    position: static;
+  }
+
+  .site-header {
+    position: static;
+  }
+}
+
+</style>
 </head>
-<body style="font-family: Times New Roman, serif; margin: 20px;">
 
- 
+<body>
+
+<!-- STICKY TITLE -->
+<header class="site-header">
   <h1>Horseshoe (2025)</h1>
+</header>
 
-  <!-- parent container for text and image -->
-  <div style="display: flex; align-items: flex-start; gap: 20px;">
+<main class="content">
 
-    <!-- text on the left -->
-    <div style="flex: 1; max-width: 600px; text-align: left; line-height: 1.5;">
-      <p>
-      Horseshoe presented work by Maira Shimada and Harrison Rae demonstrating collapse as a destructive and generative force.
-      <p></p> With acts of deconstruction alongside archival reproductions, Horseshoe pulls the poetic out of the mundane and structurally unsound. 
-   </p>
-   </div>
+  <!-- IMAGES COLUMN -->
+  <section class="images">
+    <img src="images/horseshoe1.jpeg" alt="Installation view 1" />
+    <img src="images/horseshoe3.jpeg" alt="Installation view 2" />
+    <img src="images/horseshoe4.jpeg" alt="Installation view 3" />
+    <img src="images/horseshoe5.jpg" alt="Installation view 4" />
+    <img src="images/horseshoe2.jpeg" alt="Installation view 5" />
+  </section>
 
-    <!-- image on the right -->
-    <div style="flex: 1; text-align: center;">
-      <img id="slideshow" src="images/horse2.jpg" alt="Artwork" 
-           style="width: auto; height: auto; max-height: 550px; display: block; margin: 0 auto; cursor: pointer;">
+  <!-- STICKY TEXT -->
+  <section class="text">
+
+    <p class="highlight">
+      Horseshoe presents work by Harrison Rae and Maira Shimada reflecting on collapse as a destructive and generative force.
+      Through archival reproduction and acts of deconstruction, their practices pull intimacies out of the mundane and structurally unsound.
+    </p>
+
+    <p></p>
+
+    <p>
+      Photos by Maira Shimada
+    </p>
+    <p class="back-link">
+  <a href="index.html">back</a>
+</p>
+
+
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div id="image-modal" class="modal">
+  <div class="modal-window">
+    <div class="modal-header">
+      <span>Image Viewer</span>
+      <button id="close-modal">×</button>
     </div>
-
+    <div class="modal-body">
+      <img id="modal-image" src="" alt="" />
+    </div>
   </div>
+</div>
 
-  <script>
-    const images = [
-      "images/horse2.jpg",
-      "images/work2.jpg",
-      "images/work3.jpg"
-    ];
-    let currentIndex = 0;
+<script>
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-image");
+const closeBtn = document.getElementById("close-modal");
 
-    const slideshow = document.getElementById("slideshow");
+document.querySelectorAll(".images img").forEach(img => {
+  img.addEventListener("click", () => {
+    modalImg.src = img.src;
+    modal.style.display = "flex";
+  });
+});
 
-    slideshow.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      slideshow.src = images[currentIndex];
-    });
-  </script>
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  modalImg.src = "";
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    modalImg.src = "";
+  }
+});
+</script>
 
 </body>
 </html>
