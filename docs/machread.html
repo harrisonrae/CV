@@ -1,47 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Machine Readable</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Machine Readable (2025)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body style="font-family: Times New Roman, serif; margin: 20px;">
+<body>
+  <style>
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   BASE / TYPOGRAPHY
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+body {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================
+   STICKY TITLE (SEPARATE)
+===================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 40px;
+  z-index: 100;
+}
+
+.site-header h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  padding: 0 40px 80px;
+  align-items: start;
+}
+
+/* =====================
+   IMAGES COLUMN
+===================== */
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* =====================
+   TEXT COLUMN (STICKY)
+===================== */
+.text {
+  position: sticky;
+  top: 40px;
+  max-width: 760px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.text p {
+  margin-bottom: 48px;
+}
+
+.text .highlight {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* =====================
+   MODAL (RETRO WINDOW)
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-window {
+  background: #f5f5f5;
+  border: 1px solid #000;
+  width: min(900px, 90vw);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #e0e0e0;
+  border-bottom: 1px solid #000;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 12px;
+}
+
+.modal-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .text {
+    position: static;
+  }
+
+  .site-header {
+    padding: 24px;
+  }
+
+  .content {
+    padding: 0 24px 48px;
+  }
+}
 
 
-  <h1>Machine Readable (2025)</h1>
 
-  <!-- parent container for text and image -->
-  <div style="display: flex; align-items: flex-start; gap: 20px;">
 
-    <!-- text on the left -->
-    <div style="flex: 1; max-width: 600px; text-align: left; line-height: 1.5;">
+  </style>
+
+  <header class="site-header">
+    <h1>MACHINE READABLE (2025)</h1>
+  </header>
+
+  <main class="content">
+    <section class="images">
+      <img src="images/img1.jpg" alt="Installation view 1" />
+      <img src="images/img2.jpg" alt="Installation view 2" />
+      <img src="images/img3.jpg" alt="Installation view 3" />
+      <img src="images/img4.jpg" alt="Installation view 4" />
+    </section>
+
+    <section class="text">
       <p>
-Machine Readable was a performance at Carriageworks
- </div>
+        To be machine readable, data or text must be in a form that a computer
+        can process. Increasingly machine readability is being privileged over
+        legibility as pathways and processes are streamlined and managed digitally.
+        Machine readable codes and images are integral for digital infrastructures
+        that assist systems of power which dictate material circumstances for the working class.
+      </p>
 
-    <!-- image on the right -->
-    <div style="flex: 1; text-align: center;">
-      <img id="slideshow" src="images/c2.jpg" alt="Artwork" 
-           style="width: auto; height: auto; max-height: 550px; display: block; margin: 0 auto; cursor: pointer;">
+      <p>
+        Machine Readable is a durational work that considers these dynamics between
+        readability and legibility, touching upon issues of algorthmic centralisation and erasure.
+      </p>
+
+      <p>
+       Supported by Kudos & PerformanceSpace. Special thanks to Lev and Abbey. All photographs taken by Zac Tomaszewski.
+      </p>
+    </section>
+  </main>
+
+
+  <!-- Image Viewer Modal -->
+<div id="image-modal" class="modal">
+  <div class="modal-window">
+    <div class="modal-header">
+      <span>Image Viewer</span>
+      <button id="close-modal">×</button>
     </div>
-
+    <div class="modal-body">
+      <img id="modal-image" src="" alt="" />
+    </div>
   </div>
+</div>
 
-  <script>
-    const images = [
-      "images/c2.jpg",
-      "images/carriageworks.jpg",
-      
-    ];
-    let currentIndex = 0;
+<script>
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-image");
+  const closeBtn = document.getElementById("close-modal");
 
-    const slideshow = document.getElementById("slideshow");
-
-    slideshow.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      slideshow.src = images[currentIndex];
+  document.querySelectorAll(".images img").forEach(img => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modal.style.display = "flex";
     });
-  </script>
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalImg.src = "";
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+  });
+</script>
 
 </body>
 </html>
-

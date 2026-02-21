@@ -88,7 +88,6 @@
       <option value="harrisonrae">Harrison Rae</option>
       <option value="works">Selected works</option>
       <option value="residencies">Residencies</option>
-      <option value="performances">Selected performances</option>
       <option value="webpages">Webpages</option>
       <option value="publications">Publications</option>
       <option value="curatorial">Curatorial</option>
@@ -124,12 +123,11 @@
           content.innerHTML = `
             <ul>
               <li><a href="family.html" target="_blank">Family Photo (2026)</a></li>
+              <li><a href="machread.html" target="_blank">Machine Readable (2025)</a></li>
               <li><a href="september.html" target="_blank">September (2025)</a></li>
-            <li><a href="horseshoe.html" target="_blank">Horseshoe (2025)</a></li>
+            
 <li><a href="eureka.html" target="_blank">Eureka (2025)</a></li>
-<li><a href="tiles-fundraiser.html" target="_blank">Tiles Fundraiser (2025)</a></li>
-
-<li><a href="myth-signification.html" target="_blank">Busby's Labourers (2024)</a></li>
+<li><a href="https://www.unsw.edu.au/arts-design-architecture/our-schools/art-design/student-work/tim-olsen-drawing-prize/tim-olsen-drawing-prize-2023/harrison-rae" target="_blank">Busby's Labourers (2024)</a></li>
 <li><a href="kitchen-fundraiser.html" target="_blank">Trapunto Self Portrait (2024)</a></li>
             </ul>
           `;
@@ -148,20 +146,7 @@
           photo.alt = "Residency photo";
           break;
 
-        case "performances":
-          content.innerHTML = `
-                <ul>
-<li><a href="https://harrisonrae.github.io/machine.readable" target="_blank">Machine Readable @ Carriageworks</a></li>
-<li><a href="https://harrisonrae.github.io/EthanFromePerformance/" target="_blank">Untitled @ Ethan Frome</a></li>
-<li><a href="https://harrison-rae.bandcamp.com/album/fountain-chorus" target="_blank">Fountain Chorus @ COMA Darlinghurst</a></li>
-<li><a href="https://harrisonrae.github.io/framework42/" target="_blank">Reading: Notes on Fugitivity @ AGNSW </a></li>
-
-            </ul>
-          `;
-          photo.src = "images/white.jpg";
-          photo.alt = "Performance photo";
-          break;
-
+        
            case "publications":
           content.innerHTML = `
                 <ul>
@@ -208,6 +193,7 @@
               <li><a href="https://harrisonrae.github.io/EthanFromePerformance/" target="_blank">Untitled @ Ethan Frome</a></li>
               <li><a href="https://harrisonrae.github.io/homepage/" target="_blank">An Image Everyday</a></li>
               <li><a href="https://harrisonrae.github.io/myth-and-signification/" target="_blank">Myth & Signification site</a></li>
+              <li><a href="https://harrisonrae.github.io/refusal/" target="_blank">Reading: Notes on Fugitivity @ AGNSW </a></li>
 
 
 
@@ -227,6 +213,7 @@
              case "music":
           content.innerHTML = `
             <ul>
+              <li><a href="https://harrison-rae.bandcamp.com/album/fountain-chorus" target="_blank">Fountain Chorus, Live @ COMA Darlinghurst</a></li>
               <li><a href="https://harrison-rae.bandcamp.com/album/tara" target="_blank">Ta'Ra (2024) released on Midheaven</a></li>
               <li><a href="https://clubmoss.bandcamp.com/music" target="_blank">Club Moss</a></li>
               <li><a href="https://soundcloud.com/harrisonrae/sets/snowclones-2023" target="_blank">Radio Residency on Nomad Radio</a></li>
